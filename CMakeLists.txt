@@ -14,8 +14,18 @@ hunter_add_package(md5)
 include(hunter_check_toolchain_definition)
 hunter_check_toolchain_definition(
     NAME __amd64__
-    DEFINED x64_architecture
+    DEFINED amd64_architecture
 )
+hunter_check_toolchain_definition(
+    NAME _M_AMD64
+    DEFINED m_amd64_architecture
+)
+
+if(amd64_architecture OR m_amd64_architecture)
+  set(x64_architecture YES)
+else()
+  set(x64_architecture NO)
+endif()
 
 hunter_check_toolchain_definition(NAME "_DLL" DEFINED _hunter_vs_md)
 
