@@ -27,7 +27,13 @@ else()
   set(x64_architecture NO)
 endif()
 
+hunter_check_toolchain_definition(
+    NAME __arm__
+    DEFINED arm_architecture
+)
+
 hunter_check_toolchain_definition(NAME "_DLL" DEFINED _hunter_vs_md)
 
 message("x64_architecture: ${x64_architecture}")
+message("arm_architecture: ${arm_architecture}")
 message("vs_md: ${_hunter_vs_md}")
